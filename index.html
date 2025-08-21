@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
     <!-- Chosen Palette: Green Harmony -->
-    <!-- Application Structure Plan: A single-page, top-down narrative structure designed as a digital event program. It starts with a hero section, followed by an event overview, an agenda, and a closing commitment statement. This structure was chosen to logically guide the user through the event's information, making it more engaging and digestible than a static document. -->
-    <!-- Visualization & Content Choices: Report Info: Event themes and discussion points -> Goal: Inform and engage attendees. -> Viz/Presentation Method: Simplified the structure by removing the detailed interactive topic and speakers sections to allow for more flexibility. -> Library/Method: Vanilla JS for smooth scrolling, Tailwind CSS for layout. -->
+    <!-- Application Structure Plan: A single-page, top-down narrative structure designed as a digital event program. It starts with a hero section, followed by an event overview, an agenda, a core interactive section for the round-table topics (using clickable cards and modals), a placeholder for speakers, and a closing commitment statement. This structure was chosen to logically guide the user through the event's information, making it more engaging and digestible than a static document, and focusing interactivity on the key discussion points to enhance user exploration. -->
+    <!-- Visualization & Content Choices: Report Info: Event themes and discussion points -> Goal: Inform and engage attendees about the round-table topics -> Viz/Presentation Method: Interactive cards for each discussion point -> Interaction: On-click modal reveals detailed questions and context for each topic -> Justification: This method is ideal for qualitative, conceptual information, encouraging exploration without cluttering the main view. It transforms a simple list into an engaging experience. -> Library/Method: Vanilla JS for modal interaction, Tailwind CSS for layout. No charts were used as the source material lacks quantitative data. -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
@@ -21,10 +21,29 @@
             background-size: cover;
             background-position: center;
         }
+        .modal-backdrop {
+            transition: opacity 0.3s ease;
+        }
+        .modal-content {
+            transition: transform 0.3s ease;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-green-800">Solví</div>
+            <ul class="flex space-x-6">
+                <li><a href="#sobre" class="text-gray-600 hover:text-green-800">Sobre</a></li>
+                <li><a href="#confirmacao" class="text-gray-600 hover:text-green-800">Confirmação</a></li>
+                <li><a href="#agenda" class="text-gray-600 hover:text-green-800">Agenda</a></li>
+                <li><a href="#debate" class="text-gray-600 hover:text-green-800">Mesa-Redonda</a></li>
+            </ul>
+        </nav>
+    </header>
+    
     <!-- Header -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -234,6 +253,7 @@
 
 </body>
 </html>
+
 
 
 
